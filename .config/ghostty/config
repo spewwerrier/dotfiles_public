@@ -1,0 +1,63 @@
+# command = fish
+# command = tmux
+# Harper, Hurtado, IR_Black, UltraDark
+# Rapture, solarized-osaka-night, vesper
+theme = light:monochrome_light,dark:UltraDark
+window-theme=ghostty
+cursor-style-blink = false
+cursor-style = block
+font-family = "Iosevka_SPW"
+# font-family = "Caskaydia Cove"
+# font-family = "Jetbrains Mono"
+font-size = 12.5
+window-decoration=false
+resize-overlay = never
+
+gtk-single-instance = false
+gtk-adwaita = true
+gtk-titlebar = true
+adw-toolbar-style=flat
+gtk-wide-tabs = false
+
+unfocused-split-opacity = 0.8
+
+mouse-hide-while-typing = true
+window-padding-x = 0,0
+window-padding-y = 0,0
+
+shell-integration-features = no-cursor
+
+#### This all implements my default tmux
+keybind = ctrl+shift+n=new_window
+
+keybind = alt+c=new_tab
+# keybind = alt+x>n=next_tab
+# keybind = alt+x>p=previous_tab
+keybind = alt+n=next_tab
+keybind = alt+p=previous_tab
+keybind = alt+o=last_tab
+
+keybind = alt+x>v=new_split:right
+keybind = alt+x>h=new_split:down
+keybind = alt+x>o=toggle_tab_overview
+
+# keybind = ctrl+y=goto_split:next
+
+keybind = alt+s=write_scrollback_file:open
+
+keybind = alt+k=goto_split:top
+keybind = alt+j=goto_split:bottom
+keybind = alt+h=goto_split:left
+keybind = alt+l=goto_split:right
+
+keybind = alt+r=reload_config
+keybind = alt+x>w=write_scrollback_file:paste
+keybind = alt+x>z=toggle_split_zoom
+keybind = alt+x>i=inspector:toggle
+
+keybind = ctrl+left=resize_split:left,10
+keybind = ctrl+right=resize_split:right,10
+keybind = ctrl+down=resize_split:down,10
+keybind = ctrl+up=resize_split:up,10
+
+split-divider-color = #8b38ff

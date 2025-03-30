@@ -1,0 +1,12 @@
+sudoedit /etc/udev/rules.d/99-ignore-my-device.rules  
+which has
+
+KERNELS=="input4", SUBSYSTEMS=="input", ATTRS{id/product}=="0001", ATTRS{id/vendor}=="0001", ATTRS{id/version}=="ab41", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+
+based on
+
+https://unix.stackexchange.com/questions/381944/how-to-disable-internal-keyboard-on-fedora-26-wayland/702857#702857
+
+
+
+arch wiki on /usr/share/doc/arch-wiki/html/en/

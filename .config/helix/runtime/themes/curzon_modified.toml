@@ -1,0 +1,6 @@
+inherits = "curzon"
+
+"type.builtin" = "#e695b1" 
+
+[palette]
+menu_background_color="#000000"

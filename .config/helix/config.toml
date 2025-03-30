@@ -1,0 +1,102 @@
+# helix --tutor to learn helix. Its actually pretty good
+# https://docs.helix-editor.com/keymap.html
+# https://docs.helix-editor.com/remapping.html
+
+# catppuccin_latte, nightfox, amberwood, catppuccin_mocha, rose_pine, night_owl_modified, base16_transparent, black, onedark, serendipity, iroaseta, yo_berry, base16_transparent_modified
+
+theme = "ayu_light"
+
+[editor]
+line-number = "relative"
+cursorline = true
+rulers = [90]
+auto-completion = true
+true-color = true
+gutters = ["line-numbers", "spacer"]
+# gutters = ["diagnostics", "line-numbers", "spacer", "diff"]
+# color-modes = true
+# bufferline = "always"
+idle-timeout=0
+completion-trigger-len = 1
+
+[editor.soft-wrap]
+enable = true
+
+[editor.statusline]
+left = ["mode", "file-name", "spinner"]
+center = []
+#right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+right = ["diagnostics", "position", "file-type"]
+separator = "│"
+mode.normal = "N"
+mode.insert = "I"
+mode.select = "C"
+
+[editor.lsp]
+enable = true
+# auto-signature-help	= false
+
+# [editor.smart-tab]
+# enable = false
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
+[editor.indent-guides]
+# render = true
+character = "."
+skip-levels = 0
+
+[keys.normal]
+# https://github.com/sxyazi/yazi/pull/2461
+C-y = [ ':sh rm -f /tmp/yazi-path', ':insert-output yazi %{buffer_name} --chooser-file=/tmp/yazi-path', ":open %sh{cat /tmp/yazi-path}", ":redraw" ]
+C-s = ":w"
+C-b = ["keep_primary_selection", "collapse_selection"]
+X = "extend_line_up"
+D = "delete_char_forward"
+tab = ":buffer-next"
+S-tab = ":buffer-previous"
+C-n = "move_line_down"
+C-p = "move_line_up"
+# emulate key press
+Y =  "@xy;"
+
+[keys.normal." "]
+q = ":buffer-close"
+" " = "buffer_picker"
+o = "file_picker_in_current_buffer_directory"
+
+# macro commands for lsp
+# we don't want to modify the original command we are trying to run in the first place
+# so I will try to have my macro on CAPS keybinds
+[keys.normal.g]
+D = "@ wvgd"
+
+[keys.insert]
+"C-[" = "normal_mode"
+C-l = "move_char_right"
+C-s = "signature_help"
+C-n = "move_line_down"
+C-p = "move_line_up"
+C-b = "move_char_left"
+C-f = "move_char_right"
+S-tab = "move_parent_node_start"
+
+[keys.normal."["]
+w = ":lsp-workspace-command"
+
+[keys.normal."+"]
+d = ':pipe echo -e "---\ntitle: %{buffer_name}\ndate: $(date +%%Y-%%m-%%d)\n---"'
+# b = ":sh bun run build"
+f = ":pipe fmt --width=80"
+m = ["yank_to_clipboard", ":sh man `wl-paste`"]
+# https://helix-editor-tutorials.com/tutorials/writing-documentation-and-prose-in-markdown-using-helix/#:~:text=Previewing%20with-,pandoc,-If%20you%20don%E2%80%99t
+"p" = "@:sh pandoc --resource-path <C-r>%<C-w> --self-contained --metadata title='Preview' <C-r>% -o /tmp/md-preview.html && xdg-open /tmp/md-preview.html<ret>"
+
+# c = ":sh cargo build"
+
+
+# Alt-o Alt-i increment lsp selection
+# Alt-n Alt-p next lsp selection
+# "% copies the buffer name
+# toggle-option command is very handy

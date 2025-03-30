@@ -1,0 +1,23 @@
+map <Space> scroll half-down
+map <C-Space> scroll half-up
+
+set notification-bg		        "#000000"
+set notification-fg		        "#ffffff"
+set statusbar-fg		          "#ffffff"
+set statusbar-bg		          "#000000"
+
+set guioptions s
+set font "CMU Concrete"
+
+set selection-clipboard "clipboard"
+set show-recent 50
+
+set guioptions 0
+
+set default-fg                "#ffffff"
+set default-bg 			      "#101010"
+
+set recolor-lightcolor		  "#101010"
+set recolor-darkcolor		  "#ffffff"
+
+set recolor true

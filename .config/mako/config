@@ -1,0 +1,27 @@
+sort=-time
+layer=overlay
+
+text-color=#ffffff
+background-color=#000000
+width=300
+height=110
+border-size=1
+border-color=#ce444b
+border-radius=1
+icons=0
+max-icon-size=64
+default-timeout=5000
+ignore-timeout=1
+font=iosevka 12
+
+[urgency=low]
+border-color=#cccccc
+
+[urgency=normal]
+border-color=#d08770
+
+[urgency=high]
+border-color=#bf616a
+default-timeout=0
+
+# notify-send system "failed to open /usr/bin/x73u\\ncrashing system"

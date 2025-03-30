@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+commands="popup\nchoose-tree\nlast-window\nneww\nlist-clients\nmusic\ncurrent"
+
+tmux_width=$(tmux display-message -p "#{window_width}")
+tmux_height=$(tmux display-message -p "#{window_height}")
+a=$(echo -en $commands | fzf-tmux -x $(($tmux_width/2)) -y $(($tmux_height)) -h 40%)
+
+if [ "$a" = "" ]; then
+    exit
+elif [ "$a" = "current" ]; then
+    tmux display-message -p '#S'
+elif [ "$a" = "music" ]; then
+    tmux new -dsmusic "mpv --shuffle --no-video --no-resume-playback ~/Music/JP"
+else
+    tmux $a
+fi

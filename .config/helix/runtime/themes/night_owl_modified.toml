@@ -1,0 +1,4 @@
+inherits = "night_owl"
+
+'ui.gutter' = { bg = 'background1' }
+'ui.linenr' = { fg = 'grey4', bg = 'background1', modifiers = ["italics"] }

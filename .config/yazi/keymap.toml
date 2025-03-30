@@ -1,0 +1,31 @@
+[[input.prepend_keymap]]
+on   = "<Esc>"
+run  = "close"
+desc = "Cancel input"
+
+[manager]
+prepend_keymap = [
+  { on = "!", run  = 'shell "$SHELL" --block --confirm', desc = "Open shell here" },
+  { on = "<Enter>", run  = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+  { on = "l", run  = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+
+ 
+  { on = "<C-x>", run  = "remove", desc = "Delete" },
+  { on = "<C-p>", run = "paste", desc = "Paste"},
+
+  
+  { on = "o", run  = "open --interactive", desc = "Open With" },
+  { on = "e", run  = "open ", desc = "Open File" },
+
+  # my custom scripts goes here
+  { on = ["g", "w"], run ="shell --confirm 'swww img \"$1\" --transition-step 255 --transition-fps 255'", desc = "Put wallpaper" },
+
+  # my bookmark goes here
+  { on = ["b", "b"], run ="cd ~/Spaceship/Knowledge/Books/Computing", desc = "Books" },
+  { on = ["b", "p"], run ="cd ~/Pictures", desc = "Pictures" },
+  { on = ["b", "a"], run ="cd ~/Spaceship/Knowledge/Books/Papers", desc = "Papers" },
+  { on = ["b", "k"], run ="cd ~/Spaceship/Knowledge", desc = "Papers" },
+
+
+  { on = "<C-d>", run = 'shell -- dragon -x -T "$1"'}
+]

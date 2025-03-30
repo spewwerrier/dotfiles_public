@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+selfhost_path="$HOME/Spaceship/selfhost"
+
+# cd $selfhost_path/memos
+# ./memos --port 8002 --mode prod --data . &
+
+cd $selfhost_path/ocw
+python -m http.server 8003 &
+
+# cd $selfhost_path/git
+# ./forgejo &
+
+cd $selfhost_path/glance
+./glance -config glance.yml &

@@ -1,0 +1,5 @@
+inherits = "serendipity"
+
+[palette]
+black = "#151716"
+black_hint = "#171c18"

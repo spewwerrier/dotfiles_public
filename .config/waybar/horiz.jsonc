@@ -1,0 +1,152 @@
+{
+	"layer": "top",
+	"start_hidden": false,
+	"position": "right",
+	"height": 1080,
+	"width": 10,
+	"spacing": 2,
+	"modules-left": [
+		"hyprland/workspaces",
+	],
+	"modules-center": [
+		"hyprland/window",
+	],
+	"modules-right": [
+		"hyprland/submap",
+		// "network",
+		"pulseaudio",
+		"cpu",
+		"memory",
+		// "battery",
+		// "clock",
+		// "tray"
+	],
+	"hyprland/workspaces": {
+		"format": "{id}",
+		"format-icons": {
+			"1": "1",
+			"2": "2",
+			"3": "3",
+			"4": "4",
+			"5": "5",
+			"6": "6",
+			"7": "7",
+			"8": "8",
+			"9": "9",
+			"10": "10",
+			"active": "",
+			"default": ""
+		},
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+	},
+
+	"tray": {
+		"icon-size": 14,
+		"spacing": 10
+	},
+
+
+  "clock": {
+      "format": "T {:%H:%M}",
+      "rotate": 90,
+      "format-alt": "{:%A, %B %d, %Y}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "calendar": {
+                  "mode"          : "year",
+                  "mode-mon-col"  : 3,
+                  "weeks-pos"     : "right",
+                  "on-scroll"     : 1,
+                  "format": {
+                            "months":     "<span color='#0000f0'><b>{}</b></span>",
+                            "days":       "<span color='#262626'><b>{}</b></span>",
+                            "weeks":      "<span color='#1c0413'><b>W{}</b></span>",
+                            "weekdays":   "<span color='#00ff00'><b>{}</b></span>",
+                            "today":      "<span color='#ff0000'><b><u>{}</u></b></span>"
+                            }
+                  },
+      "actions":  {
+                  "on-click-right": "mode",
+                  "on-click-forward": "tz_up",
+                  "on-click-backward": "tz_down",
+                  "on-scroll-up": "shift_up",
+                  "on-scroll-down": "shift_down"
+                  }
+    },
+    
+  //   "timezone": "Asia/Kathmandu",
+		// "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		// "format-alt": "{:%Y-%m-%d}"
+
+	"cpu": {
+		"interval": 5,
+    "rotate": 90,
+		"format": "C {usage}%",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		}
+	},
+
+	"memory": {
+		"interval": 5,
+    "rotate": 90,
+		"format": "M {used:0.1f}G",
+		"on-click": ""
+	},
+
+
+	"battery": {
+    // to find yours, run: ls /sys/class/power_supply
+    "bat": "BAT0", 
+    "interval": 5,
+    "full-at": 99,
+    "states": {
+	    "warning": 30,
+	    "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "{icon} {capacity}%",
+    "format-icons": { 
+	    "default": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+	    "charging": ["󰢜","󰂆","󰂇","󰂈","󰢝","󰂉","󰢞","󰂊","󰂋","󰂅"] 
+    }
+	},
+
+	"network": {
+    "rotate": 90,
+		"format-wifi": "{ifname}: {ipaddr}/{cidr}",
+		"format-ethernet": "{ipaddr}/{cidr} Eth",
+		"tooltip-format": "{ifname} via {gwaddr} ",
+		"format-linked": "{ifname} (No IP) ",
+		"format-disconnected": "Disconnected ⚠",
+		"format-alt": "W {essid} ({signalStrength}%)"
+	},
+
+	"pulseaudio": {
+    "rotate": 90,
+		"scroll-step": 1,
+		"format": "{icon} {volume}%",
+		"format-muted": "Muted {format_source}",
+		"format-source-muted": "",
+		"format-icons": {
+			"headphone": "H",
+			"hands-free": "H",
+			"headset": "H",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [
+				"",
+				"",
+				""
+			]
+		},
+		"on-click": "pavucontrol"
+	},
+	"hyprland/window": {
+		"rotate": 90,
+		"format": "{}",
+		"separate-outputs": true
+	}
+}

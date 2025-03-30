@@ -1,0 +1,23 @@
+[cursor]
+color=ffffff 515151
+
+[colors]
+background= 000000
+foreground= ffffff
+
+regular0=   000000
+regular4=   9e9e9e
+regular1=   aeaeae
+regular5=   bebebe
+regular2=   cecece
+regular6=   dedede
+regular3=   eeeeee
+regular7=   FFFFFF
+bright0=     7e7e7e
+bright4=     8e8e8e
+bright1=     9e9e9e
+bright5=     aeaeae
+bright2=     bebebe
+bright6=     cecece
+bright3=     dedede
+bright7=     eeeeee

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+tman_e=$(cat)
+tmux split-window -h "man $tman_e | bat"

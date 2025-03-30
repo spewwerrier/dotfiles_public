@@ -1,0 +1,166 @@
+/* Original config taken from https://github.com/DankChoir/dotfiles, modified by George-Markas. */
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "Caskaydia Cove";
+  font-size: 14px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(255, 255, 255, 0.85);
+  color: #000000;
+}
+
+tooltip {
+  background: #ffffff;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #ffffff;
+}
+
+#workspaces button {
+  color: black;
+}
+
+#workspaces button.active {
+  background: #000000;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+#workspaces button.focused {
+  color: #000000;
+  background: #0000ff;
+  border-radius: 10px;
+}
+
+#workspaces button.urgent {
+  color: #ffffff;
+  background: #ff0000;
+  border-radius: 10px;
+}
+
+#workspaces button:hover {
+  background: #00ff00;
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+#window,
+#clock,
+#battery,
+#cpu,
+#pulseaudio,
+#network,
+#temperature,
+#workspaces,
+#tray,
+#memory,
+
+#backlight {
+  margin-top: 10px;
+  /* background: #ffffff; */
+  opacity: 1;
+  /* border: 2px solid #ffffff; */
+}
+
+#memory {
+  margin-top: 10px;
+  color: #000000;
+  border-radius: 10px;
+}
+
+#cpu {
+  margin-top: 10px;
+  color: #000000;
+  border-radius: 10px;
+}
+
+#temperature {
+  margin-top: 10px;
+  color: #000000;
+  border-radius: 10px;
+}
+
+#temperature.critical {
+  color: #000000;
+}
+
+#backlight {
+  margin-top: 10px;
+  color: #000000;
+  border-radius: 10px;
+}
+
+#tray {
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
+#workspaces {
+  /* background: #ffffff; */
+  border-radius: 10px;
+}
+
+#window {
+  border-radius: 10px;
+}
+
+window#waybar.empty #window {
+  background: none;
+  border: none;
+}
+
+#submap{
+  margin-top: 10px;
+  background: white;
+  color: black;
+}
+
+#clock {
+  margin-top: 10px;
+  color: #000000;
+  border-radius: 10px;
+}
+
+
+tooltip {
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+
+tooltip label {
+  color: black;
+}
+
+#network {
+  margin-top: 10px;
+  color: #000000;
+  border-radius: 10px;
+}
+
+#pulseaudio {
+  margin-top: 10px;
+  color: #000000;
+  border-radius: 10px;
+}
+
+#battery {
+  margin-top: 10px;
+  color: #000000;
+  border-radius: 10px;
+}

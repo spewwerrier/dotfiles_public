@@ -1,0 +1,38 @@
+#!/usr/bin/env sh
+set -xe
+
+dark_theme="oomox-BWnB"
+light_theme="oomox-chesnut"
+
+theme_status="$(gsettings get org.gnome.desktop.interface color-scheme | tr -d \')"
+
+if [ $theme_status = "prefer-light" ]
+then
+  echo $dark_theme
+  notify-send "dark theme set up"
+  gsettings set org.gnome.desktop.interface gtk-theme $dark_theme
+  gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+
+  sed -i 's/theme = "eiffel"/theme = "curzon_modified"/' ~/.config/helix/config.toml
+  
+  cp ~/.config/waybar/vertic/dark.css ~/.config/waybar/style.css
+
+  
+else
+  echo $light_theme
+  notify-send "light theme set up"
+  gsettings set org.gnome.desktop.interface gtk-theme $light_theme
+  gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
+
+  sed -i 's/theme = "curzon_modified"/theme = "eiffel"/' ~/.config/helix/config.toml
+
+  cp ~/.config/waybar/vertic/light.css ~/.config/waybar/style.css
+fi
+
+pkill -USR2 waybar
+
+
+# syncing my terminal
+# pkill -USR1 fish
+
+pkill -USR1 hx

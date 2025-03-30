@@ -1,0 +1,55 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "bindings": {
+      "alt-b": null,
+      "alt-f": null
+    }
+  },
+
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift-escape": null,
+      "ctrl-n": null,
+      "ctrl-p": null,
+      "alt-e": "workspace::ToggleLeftDock",
+      "ctrl-shift-o": "outline::Toggle"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "alt-f": ["terminal::SendKeystroke", "alt-f"],
+      "alt-b": ["terminal::SendKeystroke", "alt-b"]
+    }
+  },
+  // https://github.com/zed-industries/zed/issues/7270
+  {
+    "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
+    "bindings": {
+      "space a": "editor::ToggleCodeActions", // zed specific
+      "ctrl-b": "workspace::ToggleLeftDock",
+      "g r": "editor::FindAllReferences", // zed specific
+      "shift-escape": null,
+      "space q": "pane::CloseActiveItem",
+      "space f": "file_finder::Toggle",
+      "shift-c": "editor::AddSelectionBelow",
+      "alt-c": "editor::AddSelectionAbove"
+      // "alt-h": ["vim::SwitchMode", "helix_normal"]
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "g D": ["workspace::SendKeystrokes", "ctrl-w v ctrl-w w g d"]
+    }
+  }
+]
+// NOTE: This is jump to file: "g space": "editor::OpenExcerpts", // zed specific

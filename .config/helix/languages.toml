@@ -1,0 +1,68 @@
+# Just for reference
+# https://github.com/helix-editor/helix/blob/master/languages.toml
+
+# https://www.kernel.org/doc/html/v4.10/process/coding-style.html 
+# if you need more than 3 levels of indentation, you’re screwed anyway, and should fix your program. 
+
+[language-server]
+zk = {command = "zk", args = ["lsp"]}
+mpls = {command = "mpls", args = [ "--port", "8960", "--enable-wikilinks", "--code-style", "modus-vivendi"]}
+
+
+[[language]]
+name="scala"
+# language-servers = [ ]
+[language-server.metals.config.metals]
+autoImportBuild = "all"
+
+[language-server.tinymist]
+command = "tinymist"
+config = { exportPdf = "onType", outputPath = "$root/$name" }
+
+
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
+
+[[language]]
+name = "typst"
+language-servers = ["tinymist"]
+
+
+[[language]]
+name = "html"
+auto-format = false
+
+[[language]]
+name = "css"
+auto-format = false
+
+[[language]]
+name = "tsx"
+language-servers = [ "typescript-language-server", "tailwindcss-language-server"]
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" }
+
+[[language]]
+name = "javascript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "markdown"
+language-servers = [ 'markdown-oxide', 'harper-ls']
+# language-servers = [ 'markdown-oxide', 'mpls', 'harper-ls']

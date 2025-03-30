@@ -1,0 +1,171 @@
+/* Original config taken from https://github.com/DankChoir/dotfiles, modified by George-Markas. */
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "Caskaydia Cove";
+  font-size: 14px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(60, 56, 54, 0.85);
+  color: #ffffff;
+}
+
+tooltip {
+  background: #3c3836;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #3c3836;
+}
+
+#workspaces button {
+  padding: 1px;
+  color: white;
+  margin-right: 5px;
+}
+
+#workspaces button.active {
+  background: #ffffff;
+  border-radius: 10px;
+  color: #3c3836;
+}
+
+#workspaces button.focused {
+  color: #ffffff;
+  background: #0000ff;
+  border-radius: 10px;
+}
+
+#workspaces button.urgent {
+  color: #3c3836;
+  background: #ff0000;
+  border-radius: 10px;
+}
+
+#workspaces button:hover {
+  background: #00ff00;
+  color: #3c3836;
+  border-radius: 10px;
+}
+
+#window,
+#clock,
+#battery,
+#cpu,
+#pulseaudio,
+#network,
+#temperature,
+#workspaces,
+#tray,
+#memory,
+
+#backlight {
+  /* background: #3c3836; */
+  opacity: 1;
+  padding: 0px 6px;
+  margin: 5px 0px;
+  margin-top: 5px;
+  /* border: 2px solid #3c3836; */
+}
+
+#memory {
+  color: #ffffff;
+  border-radius: 10px;
+  margin-left: 7px;
+}
+
+#cpu {
+  color: #ffffff;
+  border-radius: 10px;
+  margin-left: 7px;
+}
+
+#temperature {
+  color: #ffffff;
+  border-radius: 10px;
+  margin-left: 7px;
+}
+
+#temperature.critical {
+  color: #ffffff;
+}
+
+#backlight {
+  color: #ffffff;
+  border-radius: 10px;
+  margin-right: 7px;
+}
+
+#tray {
+  border-radius: 10px;
+  margin-right: 7px;
+}
+
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
+#workspaces {
+  /* background: #3c3836; */
+  border-radius: 10px;
+  margin-left: 7px;
+  padding-right: 0px;
+  padding-left: 5px;
+}
+
+#window {
+  border-radius: 10px;
+}
+
+window#waybar.empty #window {
+  background: none;
+  border: none;
+}
+
+#submap{
+  background: white;
+  color: black;
+}
+
+#clock {
+  color: #ffffff;
+  border-radius: 10px;
+  margin-right: 7px;
+}
+
+
+tooltip {
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+
+tooltip label {
+  color: black;
+}
+
+#network {
+  color: #ffffff;
+  border-radius: 10px;
+  margin-right: 7px;
+}
+
+#pulseaudio {
+  color: #ffffff;
+  border-radius: 10px;
+  margin-right: 7px;
+}
+
+#battery {
+  color: #ffffff;
+  border-radius: 10px;
+  margin-right: 7px;
+}

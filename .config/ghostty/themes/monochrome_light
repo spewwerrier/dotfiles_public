@@ -1,0 +1,30 @@
+# ported
+# Theme for electrophoretic displays (like e-ink) which usually supports
+# 16 levels of grays. This theme aims to maximize the contrast between the
+# text and the white background.
+# author: Eugen Rahaian <eugen@rah.ro>
+
+background= #ffffff
+foreground= #000000
+cursor-color = #f2d5cf
+cursor-text = #c6d0f5
+selection-background = #ffffff
+selection-foreground = #000000
+
+palette = 0=#ffffff
+palette = 1=#515151
+palette = 2=#313131
+palette = 3=#111111
+palette = 4=#616161
+palette = 5=#414141
+palette = 6=#212121
+palette = 7=#000000
+
+palette = 8=#818181
+palette = 9=#616161
+palette = 10=#414141
+palette = 11=#212121
+palette = 12=#717171
+palette = 13=#515151
+palette = 14=#313131
+palette = 15=#111111

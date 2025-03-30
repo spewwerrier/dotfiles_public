@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+
+todayDate=$(date +"%Y-%m-%d")
+
+query=$(printf "%s\n" "kantipur" "kathmandupost" | bemenu --fn "Victor Mono 29"  --list 10 -b --prompt "⌕" --tf "#f3fa37" --hf "#000000" --hb "#ffffff" -c -M 800)
+
+if [ -z "$query" ]
+then echo "No args"
+	exit 1
+fi
+
+if [ "$query" = "kantipur" ]
+then
+	curl -Lo /tmp/kantipur.pdf  "https://epaper.ekantipur.com/kantipur/download/$todayDate"
+	xdg-open /tmp/kantipur.pdf
+	exit 1
+elif [ "$query" = "kathmandupost" ]
+then
+	curl -Lo /tmp/kathmandupost.pdf "https://epaper.ekantipur.com/kathmandupost/download/$todayDate"
+	xdg-open /tmp/kathmandupost.pdf
+	exit 1
+
+else
+	echo "Not specified"
+	exit 1
+fi
+

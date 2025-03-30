@@ -1,0 +1,81 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette
+{
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Oxocarbon Dark (IBM Carbon)"
+  },
+  "features": {
+    // "edit_prediction_provider": "zed"
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": false
+  },
+  "show_whitespaces": "none",
+  // "show_completions_on_input": false,
+  "unstable.ui_density": "compact",
+  "gutter": {
+    "code_actions": false,
+    "folds": false,
+    "runnables": false
+  },
+  "terminal": {
+    "shell": {
+      "program": "fish"
+    }
+  },
+  "relative_line_numbers": true,
+  "use_system_path_prompts": false,
+  "search": {
+    "regex": true
+  },
+  "assistant": {
+    "version": "2",
+    "enabled": false
+  },
+  "vim_mode": true,
+  "scrollbar": {
+    "show": "never"
+  },
+  "git": {
+    "git_gutter": null,
+    "gutter_debounce": null,
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "project_panel": {
+    "file_icons": false,
+    "git_status": false,
+    "dock": "right"
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "ui_font_family": "Iosevka_SPW",
+  "buffer_font_family": "Iosevka_SPW",
+  "lsp": {
+    "tinymist": {
+      "initialization_options": {
+        "exportPdf": "onSave",
+        "outputPath": "$root/$name"
+      }
+    }
+  },
+
+  "languages": {
+    "PHP": {
+      "language_servers": ["intelephense", "!phpactor", "..."]
+    }
+  }
+}

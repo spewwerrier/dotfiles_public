@@ -1,0 +1,270 @@
+# Read `man 5 sway` for a complete reference.
+
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+set $alt Mod1
+
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term foot
+
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# need swaybg
+# output * bg /home/owl/.config/sway/wallpapers/default.jpg fill
+
+### Input configuration
+input "*" {
+	tap enabled
+	middle_emulation enabled
+}
+
+## Make caps as ctrl
+input "type:keyboard" {
+	xkb_layout us
+	xkb_options ctrl:swapcaps
+
+}
+#
+
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+### Key bindings
+## wshowkeys https://git.sr.ht/~sircmpwn/wshowkeys
+## Xorg-xev can also be used
+#
+# Basics:
+#
+# Start a terminal
+bindsym $mod+Return exec $term
+
+bindsym $mod+left focus left
+bindsym $mod+right focus right
+bindsym $mod+down focus down
+bindsym $mod+up focus up
+
+bindsym mod1+h focus left
+bindsym mod1+l focus right
+bindsym mod1+j focus down
+bindsym mod1+k focus up
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Start your launcher
+bindsym $mod+shift+Return exec ~/.config/sway/script/bemenu_launch.sh
+bindsym $alt+shift+Return exec ~/.config/sway/script/bemenu_launch.sh
+bindsym $mod+d exec ~/.config/sway/script/search.sh
+
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+# More like: true fullscreen, no distractions
+# was not possible in x-wm since it did not resize itself
+bindsym $mod+c exec killall -SIGUSR1 waybar
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+# Workspaces:
+#
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# https://faq.i3wm.org/question/3179/how-to-bind-special-keys.1.html
+# ( parensleft
+# [ bracketleft
+# { braceleft
+# )]} just so autoformat wont act up
+bindsym $mod+bracketright workspace next
+bindsym $mod+bracketleft workspace prev
+
+# Move focused container to workspace
+bindsym $alt+1 move container to workspace number 1
+bindsym $alt+2 move container to workspace number 2
+bindsym $alt+3 move container to workspace number 3
+bindsym $alt+4 move container to workspace number 4
+bindsym $alt+5 move container to workspace number 5
+bindsym $alt+6 move container to workspace number 6
+bindsym $alt+7 move container to workspace number 7
+bindsym $alt+8 move container to workspace number 8
+bindsym $alt+9 move container to workspace number 9
+bindsym $alt+0 move container to workspace number 10
+
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindsym $mod+h splith
+bindsym $mod+v splitv
+
+# Switch the current container between different layout styles
+# bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
+
+# Scratchpad:
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+
+# Launch keybinds
+bindsym $mod+o exec obsidian
+#bindsym $mod+p exec neovide --multigrid
+# bindsym $mod+shift+p exec foot --title=neovim nvim ~/.config/nvim/init.vim
+bindsym $mod+shift+p exec neovide --multigrid ~/.config/nvim/init.vim
+bindsym print exec_always ~/.config/sway/script/swappy
+bindsym $mod+n exec brightnessctl set 1
+bindsym $mod+l exec swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color bb00cc --key-hl-color 880033 --line-color 00000000 --inside-color 00000088 --separator-color 00000000 --grace 2 --fade-in 0.2
+
+# Resizing containers:
+mode "resize" {
+	bindsym $left resize shrink width 10px
+		bindsym $down resize grow height 10px
+		bindsym $up resize shrink height 10px
+		bindsym $right resize grow width 10px
+
+		bindsym Left resize shrink width 10px
+		bindsym Down resize grow height 10px
+		bindsym Up resize shrink height 10px
+		bindsym Right resize grow width 10px
+
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+}
+bindsym $mod+shift+r mode "resize"
+
+# FN keys
+#bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+# pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl set-sink-mute @DEFAULT_SINK@ false && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > /tmp/wob.sock
+
+# bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl set-sink-mute @DEFAULT_SINK@ false && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
+
+# pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Brightness up
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym $mod+shift+u exec brightnessctl set 5%+
+# And brightness down
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym $mod+shift+d exec brightnessctl set 5%-
+
+
+
+#set $exit "exit: [s]leep, [p]oweroff, [r]eboot, [l]ogout"
+#mode $exit {
+#	bindsym --to-code {
+#		s exec loginctl suspend, mode "default"
+#			p exec poweroff
+#			r exec reboot
+#			l exec swaymsg exit
+#
+#			Return mode "default"
+#			Escape mode "default"
+#			$mod+x mode "default"
+#	}
+#}
+
+# bindsym --to-code $mod+x mode $exit
+
+bindsym $mod+x exec ~/.config/sway/script/bind_x.sh
+
+
+
+# default_border pixel
+default_border pixel
+gaps inner 2
+
+set $pixel "border: [n]one, n[o]rmal, [c]sd, [p]ixel"
+mode $pixel {
+	bindsym --to-code {
+		n border none
+			o border normal
+			c border csd
+			p border pixel
+
+
+			Return mode "default"
+			Escape mode "default"
+			$mod+b mode "default"
+
+	}
+}
+bindsym --to-code $mod+b mode $pixel 
+
+
+# https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+		gsettings set $gnome-schema cursor-theme 'BreezeX-Light'
+		gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+		gsettings set org.gnome.desktop.interface gtk-theme "Qogir-Dark"
+		gsettings set $gnome-schema font-name 'Iosevka_SPW'
+}
+
+# Status Bar:
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+	swaybar_command waybar
+}
+
+
+client.focused #000000 #4e24b7 #000000 #5f3ba8 #9900cc 
+
+
+set $opacity 0.9
+
+for_window [app_id="kitty"] opacity 1
+for_window [class="VSCodium"] opacity 1
+for_window [class="Code"] opacity 0.95
+for_window [class="discord"] opacity $opacity
+for_window [class="obsidian"] opacity 0.95
+for_window [app_id="foot"] opacity 0.95
+for_window [app_id="neovide"] opacity 0.95
+for_window [app_id="lapce"] opacity 0.95
+
+for_window [app_id="Emacs"] opacity 0.95
+for_window [class="Emacs"] opacity 0.95
+
+for_window [class="sioyek"] opacity 1
+for_window [app_id="sioyek"] opacity 1
+
+
+exec mako 
+exec_always --no-startup-id dbus-update-activation-environment --all
+exec_always dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec_always nm-applet --indicator &
+exec_always /usr/lib/xdg-desktop-portal -r
+exec_always /usr/lib/xdg-desktop-portal-wlr
+exec foot
+include /etc/sway/config.d/*
+
